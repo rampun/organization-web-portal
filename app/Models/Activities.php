@@ -95,5 +95,4 @@ class Activities extends Model
         $event = Activities::withTrashed()->find($id);
         $event->forceDelete();        
     }
-
 }
