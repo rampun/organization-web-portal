@@ -1,0 +1,274 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+
+body
+{
+    // font-family: 'Roboto', sans-serif;
+}
+
+
+$mainColor : #404596;
+$grey : #555d66;
+$black : #000;
+// standard styles
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+p {
+    font-size: 14px;
+}
+
+a {
+    color: #0073aa;
+    &:hover {
+        text-decoration: none;
+        color: #00a0d2;
+    }
+}
+
+
+
+.pun_flex{
+    display: flex;
+}
+
+.height40
+{
+    height: 40px;
+}
+.height80
+{
+    height: 80px;
+}
+
+.success-color {
+    color: green;
+}
+
+
+
+// Members page
+#search_count {
+    margin-top: 10px;
+}
+#members_listing_table {
+    margin-top: 10px;
+}
+
+
+// loading gif
+.pms_loading {
+    display: none;
+    position: fixed!important;
+    z-index: 999!important;
+    overflow: show!important;
+    margin: auto!important;
+    top: 0!important;
+    left: 0!important;
+    bottom: 0!important;
+    right: 0!important;
+    width: 50px!important;
+    height: 50px!important;
+}
+
+
+/* Transparent Overlay */
+
+.pms_loading:before {
+    content: ''!important;
+    display: block!important;
+    position: fixed!important;
+    top: 0!important;
+    left: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+    background-color: rgba(255, 255, 255, 0.5)!important;
+}
+
+
+/* :not(:required) hides these rules from IE9 and below */
+
+.pms_loading:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.pms_loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 50px;
+    height: 50px;
+    margin-top: -0.5em;
+    border: 5px solid $mainColor;
+    border-radius: 100%;
+    border-bottom-color: transparent;
+    -webkit-animation: spinner 1s linear 0s infinite;
+    animation: spinner 1s linear 0s infinite;
+}
+
+/* Animation for product list page - add to cart */
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+
+// COMMITTEE PAGE
+.committee-page {
+    img {
+        object-fit: cover;
+        height: 150px;
+        width: 150px;
+    }
+}
+
+
+// GLOBAL STYLES
+ul.post_status_count {
+    list-style-type: none;
+    padding: 0;
+    li {
+        display: inline;
+        a {
+            font-size: 13px;
+            span.count {
+                color: $grey;
+                font-weight: 400;
+            }
+        }
+        a.current {
+            font-weight: 600;
+            color: $black;
+        }
+    }
+}
+
+// listing pages
+table.list {
+    th {
+        font-size: 15px;
+        font-weight: 600;
+    }
+    td {
+        font-size: 14px;
+        font-weight: 600;
+
+        span.post-state
+        {
+            color: $grey;
+            font-weight: 600;
+        }
+    }
+}
+
+// landing page
+.pms-landing 
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .login_btn
+    {
+        border: 1px solid black;
+        padding: 8px 20px;
+        color: black;
+        margin-top: 10px;
+        &:hover{
+            border: 1px solid $mainColor;
+            background: $mainColor;
+            color: #ffffff;
+        }
+    }
+}
+
+// login page
+#wrapper
+{
+    height: 100vh;
+    #loginWrapper
+    {
+        margin-top: 100px;
+    }
+}

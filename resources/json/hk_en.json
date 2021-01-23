@@ -1,0 +1,50 @@
+{
+	"Kowloon": {
+		"Kwun Tong" : "Kwun Tong",
+		"Sham Shui Po" : "Sham Shui Po",
+		"Wong Tai Sin" : "Wong Tai Sin",
+		"Kowloon City" : "Kowloon City",
+		"Yau Tsim Mong" : "Yau Tsim Mong"
+	},
+	"Hong Kong": {
+		"Aberdeen/Ap Lei Chau" : "Aberdeen/Ap Lei Chau",
+		"Causeway Bay" : "Causeway Bay",
+		"Central/Sheung Wan" : "Central/Sheung Wan",
+		"Chai Wan" : "Chai Wan",
+		"Happy Valley/Wong Nai Chung" : "Happy Valley/Wong Nai Chung",
+		"Island South" : "Island South",
+		"Kennedy Town/Sai Ying Pun" : "Kennedy Town/Sai Ying Pun",
+		"Mid-Levels" : "Mid-levels",
+		"North Point" : "North Point",
+		"Pok Fu Lam" : "Pok Fu Lam",
+		"Quarry Bay" : "Quarry Bay",
+		"Sai Wan Ho" : "Sai Wan Ho",
+		"Shau Kei Wan" : "Shau Kei Wan",
+		"Tai Hang/Jardine's Lookout" : "Tai Hang/Jardine's Lookout",
+		"The Peak" : "The Peak",
+		"Wan Chai" : "Wan Chai",
+		"Wong Chuk Hang" : "Wong Chuk Hang"
+	},
+	"New Territory": {
+		"Sai Kung" : "Sai Kung",
+		"North" : "North",
+		"Yuen Long" : "Yuen Long",
+		"Kwai Tsing" : "Kwai Tsing",
+		"Sha Tin" : "Sha Tin",
+		"Tsuen Wan" : "Tsuen Wan",
+		"Tai Po" : "Tai Po",
+		"Tuen Mun" : "Tuen Mun"
+	},
+	"Islands": {
+		"Ma Wan" : "Ma Wan",
+		"Lantau Islands" : "Lantau Islands",
+		"Cheug Chau" : "Cheung Chau",
+		"Peng Chau" : "Peng Chau",
+		"Tai O" : "Tai O",
+		"Tung Lung Chau" : "Tung Lung Chau",
+		"Tap Mun" : "Tap Mun",
+		"Tsing Yi" : "Tsing Yi",
+		"Chek Lap Kok" : "Chek Lap Kok",
+		"Outlying Islands" : "Outlying Islands"
+	}
+}
