@@ -37408,7 +37408,7 @@ jQuery(function () {
     // dynamic list members
     $(".listMembers").select2({
       ajax: {
-        url: 'http://127.0.0.1:8000/member/search',
+        url: 'https://pms.weavetechlabs.xyz/member/search',
         dataType: 'json',
         delay: 250,
         type: 'POST',
@@ -37442,7 +37442,7 @@ jQuery(function () {
       return member.text;
     }
 
-    var $container = $("<div class='select2-result-member clearfix'>" + "<div class='select2-result-member__avatar'><img src='http://127.0.0.1:8000/uploads/members/" + member.id + '/' + member.member_photo + "' style='width: 40px;float: left;margin-right: 5px;'/></div>" + "<div class='select2-result-member__meta'>" + "<div class='select2-result-member__title'></div>" + "</div>" + "</div>" + "</div>");
+    var $container = $("<div class='select2-result-member clearfix'>" + "<div class='select2-result-member__avatar'><img src='https://pms.weavetechlabs.xyz/uploads/members/" + member.id + '/' + member.member_photo + "' style='width: 40px;float: left;margin-right: 5px;'/></div>" + "<div class='select2-result-member__meta'>" + "<div class='select2-result-member__title'></div>" + "</div>" + "</div>" + "</div>");
     $container.find(".select2-result-member__title").text(member.name);
     return $container;
   }

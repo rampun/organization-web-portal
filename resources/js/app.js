@@ -175,7 +175,6 @@ jQuery( function() {
         searchFilterMember();
       })
 
-
       loadRemoteData();
       
       function loadRemoteData()
