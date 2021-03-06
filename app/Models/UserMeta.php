@@ -44,6 +44,7 @@ class UserMeta extends Model
         'member_photo',
         'telephone_no',
         'spouse_name',
+        'spouse_job',
         'spouse_photo',
         'job'
     ];

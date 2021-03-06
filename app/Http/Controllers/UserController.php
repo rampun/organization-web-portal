@@ -47,13 +47,6 @@ class UserController extends ApiController
 
     public function create(Request $request)
     {
-        // if($request->method() == 'GET')
-        // {
-        // }
-        // else if($request->method() == 'POST')
-        // {
-        // }
-
         // read json file from storage > public
         $np_exists = Storage::disk('public')->exists('np_en.json');
         $np_province = [];
@@ -141,6 +134,7 @@ class UserController extends ApiController
             $user_meta['mobile_no'] = $request->input('mobile_no');
             $user_meta['telephone_no'] = $request->input('telephone_no');
             $user_meta['spouse_name'] = $request->input('spouse_name');
+            $user_meta['spouse_job'] = $request->input('spouse_job');
             $user_meta['job'] = $request->input('job');
 
             // Member image handling
@@ -148,7 +142,7 @@ class UserController extends ApiController
                 if ($request->file('member_photo')->isValid()) {
                     $member_photo_fileName = time() . '_id_' . $user->id . '.' . $request->member_photo->extension();
                     $request->member_photo->move(public_path('uploads/members/' . $user->id), $member_photo_fileName);
-                    $user_meta['member_photo'] = '/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
+                    $user_meta['member_photo'] = url('/').'/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
                 }
             }
 
@@ -158,7 +152,7 @@ class UserController extends ApiController
                 if ($request->file('spouse_photo')->isValid()) {
                     $spouse_photo_fileName = time() . '_spouse_of_' . $user->id . '.' . $request->spouse_photo->extension();
                     $request->spouse_photo->move(public_path('uploads/members/' . $user->id), $spouse_photo_fileName);
-                    $user_meta['spouse_photo'] = '/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
+                    $user_meta['spouse_photo'] = url('/').'/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
                 }
             }
 
@@ -189,7 +183,7 @@ class UserController extends ApiController
                             if ($request->file($request_child_file_name)->isValid()) {
                                 $child_photo_fileName = time() . '_child_' . $i . '_of_' . $user->id . '.' . $request->$request_child_file_name->extension();
                                 $request->$request_child_file_name->move(public_path('uploads/members/' . $user->id), $child_photo_fileName);
-                                $child_photo_file_name = '/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
+                                $child_photo_file_name = url('/').'/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
                             }
                         }
 
@@ -318,6 +312,7 @@ class UserController extends ApiController
             $userInfo->telephone_no = $request->input('telephone_no');
             $userInfo->job = $request->input('job');
             $userInfo->spouse_name = $request->input('spouse_name');
+            $userInfo->spouse_job = $request->input('spouse_job');
 
             // Member image handling
             if ($request->hasFile('member_photo')) {
@@ -325,7 +320,7 @@ class UserController extends ApiController
                     $member_photo_fileName = time() . '_id_' . $user->id . '.' . $request->member_photo->extension();
                     $request->member_photo->move(public_path('uploads/members/' . $user->id), $member_photo_fileName);
                     $oldFileMember = $userInfo->member_photo;
-                    $userInfo->member_photo = '/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
+                    $userInfo->member_photo = url('/').'/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
                     //remove old file
                     Storage::delete($oldFileMember);
                 }
@@ -338,7 +333,7 @@ class UserController extends ApiController
                     $spouse_photo_fileName = time() . '_spouse_of_' . $user->id . '.' . $request->spouse_photo->extension();
                     $request->spouse_photo->move(public_path('uploads/members/' . $user->id), $spouse_photo_fileName);
                     $oldFileSpouse = $userInfo->spouse_photo;
-                    $userInfo->spouse_photo = '/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
+                    $userInfo->spouse_photo = url('/').'/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
                     //remove old file
                     Storage::delete($oldFileSpouse);
                 }
@@ -374,7 +369,7 @@ class UserController extends ApiController
                                 $child_photo_fileName = time() . '_child_' . $i . '_of_' . $user->id . '.' . $request->$child_file_name->extension();
                                 $request->$child_file_name->move(public_path('uploads/members/' . $user->id), $child_photo_fileName);
                                 $oldFileChild = $cinfo->photo;
-                                $child_photo_file_name_save = '/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
+                                $child_photo_file_name_save = url('/'). '/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
                                 //remove old file
                                 Storage::delete($oldFileChild);
                             }
@@ -470,7 +465,7 @@ class UserController extends ApiController
                 if ($request->file($request_child_file_name)->isValid()) {
                     $child_photo_fileName = time() . '_child_' . $i . '_of_' . $userId . '.' . $request->$request_child_file_name->extension();
                     $request->$request_child_file_name->move(public_path('uploads/members/' . $userId), $child_photo_fileName);
-                    $child_photo_file_name = '/uploads/members/' . $userId . '/' . strval($child_photo_fileName);
+                    $child_photo_file_name = url('/').'/uploads/members/' . $userId . '/' . strval($child_photo_fileName);
                 }
             }
 

@@ -62,7 +62,7 @@ class ActivityController extends ApiController
             if ($request->file('photo')->isValid()) {
                 $activity_photo_file_name = strval(str_replace(' ', '', time() . $request->input('start_date') . '.' . $request->photo->extension()));
                 $request->photo->move(public_path('uploads/activities/'), $activity_photo_file_name);
-                $activity['photo'] = '/uploads/activities/' . $activity_photo_file_name;
+                $activity['photo'] = url('/').'/uploads/activities/' . $activity_photo_file_name;
             }
         }
 
@@ -99,7 +99,7 @@ class ActivityController extends ApiController
             if ($request->file('photo')->isValid()) {
                 $activity_photo_file_name = strval(str_replace(' ', '', time() . $request->input('start_date') . '.' . $request->photo->extension()));
                 $request->photo->move(public_path('uploads/activities/'), $activity_photo_file_name);
-                $activity['photo'] = '/uploads/activities/' . $activity_photo_file_name;
+                $activity['photo'] = url('/').'/uploads/activities/' . $activity_photo_file_name;
             }
         } else {
             $singleActivities = $this->activities->getActivitySingle($activityId);

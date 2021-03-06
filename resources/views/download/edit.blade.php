@@ -64,11 +64,6 @@
                   <div>
                     <input type="file" name="file" class="form-control" id="file">
                   </div>
-                  <div>
-                    @if(!empty($download->file))
-                      <img src="<?php echo URL::to('/').'/images/pmshk-file-exists.jpg';?>" width="90px">
-                    @endif
-                  </div>
                 </div>
               </div>
             </div>

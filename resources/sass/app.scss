@@ -270,5 +270,16 @@ table.list {
     #loginWrapper
     {
         margin-top: 100px;
+
+
+    /* custom css */
+    .col-md-4{
+        label {
+            text-align: left!important;
+            width: 100%!important;
+            max-width: 100%;
+            padding-left: 0;
+            }
+        }
     }
 }

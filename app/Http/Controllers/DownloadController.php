@@ -65,7 +65,7 @@ class DownloadController extends ApiController
                 if ($request->file('file')->isValid()) {
                     $download_file_file_name = time().'_'. str_replace(' ', '_', $request->input('file_name')) . '.' . $request->file->extension();
                     $request->file->move(public_path('uploads/downloads/'), $download_file_file_name);
-                    $download['file'] = '/uploads/downloads/' . $download_file_file_name;
+                    $download['file'] = url('/').'/uploads/downloads/' . $download_file_file_name;
                 }
             }
 
@@ -120,7 +120,7 @@ class DownloadController extends ApiController
             if ($request->file('file')->isValid()) {
                 $download_file_name = strval(str_replace(' ', '',time() . $request->input('start_date').'.'.$request->file->extension()));
                 $request->file->move(public_path('uploads/download/'), $download_file_name);
-                $download['file'] = '/uploads/downloads/'.$download_file_name;
+                $download['file'] = url('/').'/uploads/downloads/'.$download_file_name;
             }
         }
         else {

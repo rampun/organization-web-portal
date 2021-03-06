@@ -64,7 +64,7 @@ class EventController extends ApiController
                 if ($request->file('photo')->isValid()) {
                     $event_photo_file_name = strval(str_replace(' ', '', time() . $request->input('start_date').'.'.$request->photo->extension()));
                     $request->photo->move(public_path('uploads/events/'), $event_photo_file_name);
-                    $event['photo'] = '/uploads/events/'.$event_photo_file_name;
+                    $event['photo'] = url('/').'/uploads/events/'.$event_photo_file_name;
                 }
             }
 
@@ -105,7 +105,7 @@ class EventController extends ApiController
             if ($request->file('photo')->isValid()) {
                 $event_photo_file_name = strval(str_replace(' ', '',time() . $request->input('start_date').'.'.$request->photo->extension()));
                 $request->photo->move(public_path('uploads/events/'), $event_photo_file_name);
-                $event['photo'] = '/uploads/events/'.$event_photo_file_name;
+                $event['photo'] = url('/').'/uploads/events/'.$event_photo_file_name;
             }
         }
         else {

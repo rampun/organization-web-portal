@@ -11085,6 +11085,14 @@ table.list td span.post-state {
 }
 
 #wrapper #loginWrapper {
-  margin-top: 100px;
+  margin-top: 250px;
+  /* custom css */
+}
+
+#wrapper #loginWrapper .col-md-4 label {
+  text-align: left !important;
+  width: 100% !important;
+  max-width: 100%;
+  padding-left: 0;
 }
 

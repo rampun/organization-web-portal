@@ -31,7 +31,7 @@
       
       @php
       if(!empty($activity->photo))
-            echo '<img src="'.URL::to('/').$activity->photo .'" width="150px">';
+            echo '<img src="'.$activity->photo .'" width="150px">';
         else {
           echo '<img src="' . Helper::getPlaceholderImage() . '">';
         }

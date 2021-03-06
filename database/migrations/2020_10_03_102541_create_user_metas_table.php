@@ -38,6 +38,7 @@ class CreateUserMetasTable extends Migration
             $table->date('issue_date')->nullable();;
             $table->date('expiry_date')->nullable();
             $table->string('spouse_name')->nullable();
+            $table->string('spouse_job')->nullable();
             $table->string('spouse_photo')->nullable();
             $table->softDeletes();
             $table->timestamps();

@@ -2,6 +2,41 @@
 
 @section('content')
 
+<?php 
+
+$jobOptions = [
+                      "Accounting",
+                      "Cashier",
+                      "Cleaner",
+                      "Clerk",
+                      "Computer and Information Technology",
+                      "Construction/Survey",
+                      "Cook / Waiter",
+                      "Customer Service",
+                      "Delivery Worker",
+                      "Design / Draftsworker",
+                      "Domestic Helper",
+                      "Driver",
+                      "Engineering",
+                      "Labourer",
+                      "Management / Administration",
+                      "Marketing Representative / Sales ",
+                      "Merchandiser",
+                      "Office Assistant",
+                      "Production / Factory ",
+                      "Receptionist ",
+                      "Secretary",
+                      "Security Guard",
+                      "Stockkeeper",
+                      "Teacher / Tutor",
+                      "Technician",
+                      "Tour Guide",
+                      "Typist",
+                      "Other Professional/Associate Professional",
+                      "Others"
+                ];
+
+                ?>
 
 <div class="container-fluid">
   <!-- Page Heading -->
@@ -297,37 +332,6 @@
                 <select id="job" name="job" class="form-control" >
                   <option value="">Select</option>
                   <?php
-                    $jobOptions = [
-                      "Accounting",
-                      "Cashier",
-                      "Cleaner",
-                      "Clerk",
-                      "Computer and Information Technology",
-                      "Construction/Survey",
-                      "Cook / Waiter",
-                      "Customer Service",
-                      "Delivery Worker",
-                      "Design / Draftsworker",
-                      "Domestic Helper",
-                      "Driver",
-                      "Engineering",
-                      "Labourer",
-                      "Management / Administration",
-                      "Marketing Representative / Sales ",
-                      "Merchandiser",
-                      "Office Assistant",
-                      "Production / Factory ",
-                      "Receptionist ",
-                      "Secretary",
-                      "Security Guard",
-                      "Stockkeeper",
-                      "Teacher / Tutor",
-                      "Technician",
-                      "Tour Guide",
-                      "Typist",
-                      "Other Professional/Associate Professional",
-                      "Others"
-                ];
                   foreach ($jobOptions as $jobOption)
                   {
                     ?>
@@ -344,7 +348,7 @@
                 <div class="pun_flex">
                   <div>
                     @if(!empty($user_info->member_photo )) 
-                    <img src="<?php echo URL::to('/').'/uploads/members/'.$user->id .'/'.$user_info->member_photo;?>" width="90px">
+                    <img src="<?php echo $user_info->member_photo;?>" width="90px">
                     @endif
                   </div>
                   <div>
@@ -360,17 +364,38 @@
               
               {{--  Spouse Name --}}
               <div class="form-group col-md-4">
-                <label for="spouse_name">Spouse Name</label>
+                <label for="spouse_name">Name</label>
                 <input type="text" name="spouse_name" value="{{ $user_info->spouse_name }}" class="form-control" id="spouse_name">
+              </div>
+
+              {{-- Spouse Job --}}
+              <div class="form-group col-md-4">
+                <label for="spouse_job">
+                  Job
+                  @if ($errors->has('spouse_job'))
+                  <span class="text-danger">({{ $errors->first('spouse_job') }})</span>
+                @endif</label>
+
+                <select id="spouse_job" name="spouse_job" class="form-control" >
+                  <option value="">Select</option>
+                  <?php
+                  foreach ($jobOptions as $jobOption)
+                  {
+                    ?>
+                    <option value="<?php echo $jobOption;?>" <?php echo $user_info->spouse_job == $jobOption ? 'selected':''; ?>><?php echo $jobOption;?></option>
+                  
+                  <?php } ?>
+
+                </select>
               </div>
 
               {{-- Spouse Photo --}}
               <div class="form-group col-md-4">
-                <label for="spouse_photo">Spouse Photo</label>
+                <label for="spouse_photo">Photo</label>
                 <div class="pun_flex">
                   <div>
                     @if(!empty($user_info->spouse_photo )) 
-                    <img src="<?php echo URL::to('/').'/uploads/members/'.$user->id .'/'.$user_info->spouse_photo;?>" width="90px">
+                    <img src="<?php echo $user_info->spouse_photo;?>" width="90px">
                     @endif
                   </div>
                   <div>
@@ -453,7 +478,7 @@
                 <div class="pun_flex">
                   <div>
                     @if(!empty($cinfo->photo )) 
-                    <img src="<?php echo URL::to('/').'/uploads/members/'.$user->id .'/'.$cinfo->photo;?>" width="90px">
+                    <img src="<?php echo $cinfo->photo;?>" width="90px">
                     @endif
                   </div>
                   <div>
@@ -559,10 +584,9 @@
         <button type="submit" class="btn btn-sm btn-success">{{ __('Add Child') }}</button>
       </form>
     </div>
-    </div>
+    
   </div>
     @endif
-</div>
 </div>
 
   @endsection

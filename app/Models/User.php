@@ -82,6 +82,11 @@ class User extends Authenticatable
                 $members_detail[$i]['spouse']['name'] = $member_info->spouse_name;
             }
 
+            if(!empty($member_info->spouse_job))
+            {
+                $members_detail[$i]['spouse']['name'] = $member_info->spouse_job;
+            }
+
             if(!empty($member_info->spouse_photo) )
             {
                 $members_detail[$i]['spouse']['photo'] = url('/') . $member_info->spouse_photo;

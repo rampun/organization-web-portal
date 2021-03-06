@@ -31,7 +31,7 @@
         
         @php
         if(!empty($event->photo))
-              echo '<img src="'.URL::to('/').$event->photo .'" width="150px">';
+              echo '<img src="'.$event->photo .'" width="150px">';
           else {
             echo '<img src="'. Helper::getPlaceholderImage() . '">';
           }

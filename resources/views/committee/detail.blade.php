@@ -30,7 +30,7 @@
         <div class="row text-center">
             <div class="col-md-12">
                 @if (!empty($president['member_photo']))
-                    <img src="@php echo URL::to('/').'/uploads/members/'. $president['id'] .'/'. $president['member_photo'] @endphp" />
+                    <img src="@php echo $president['member_photo'] @endphp" />
                 @endif
                 <p><b>{{ $president['name'] }}</b><br><i>(President)</i></p>
             </div>
@@ -46,7 +46,7 @@
                 @if(!empty($committee->first_vc_president))
                 @php $first_vc_president = $User->getUser($committee->first_vc_president); @endphp
                 @if (!empty($first_vc_president['member_photo']))
-                    <img src="@php echo URL::to('/').'/uploads/members/'. $first_vc_president['id'] .'/'. $first_vc_president['member_photo'] @endphp" />
+                    <img src="@php echo $first_vc_president['member_photo'] @endphp" />
                 @endif
                 <p><b>{{ $first_vc_president['name'] }}</b><br><i>(First Vice President)</i></p>
                 @endif
@@ -55,7 +55,7 @@
                 @if(!empty($committee->second_vc_president))
                     @php $second_vc_president = $User->getUser($committee->second_vc_president); @endphp
                             @if (!empty($second_vc_president['member_photo']))
-                                <img src="@php echo URL::to('/').'/uploads/members/'. $second_vc_president['id'] .'/'. $second_vc_president['member_photo'] @endphp" />
+                                <img src="@php echo $second_vc_president['member_photo'] @endphp" />
                             @endif
                             <p><b>{{ $second_vc_president['name'] }}</b><br> <i>(Second Vice President)</i></p>
                     @else
@@ -73,7 +73,7 @@
                 @if(!empty($committee->general_secretary))
                     @php $general_secretary = $User->getUser($committee->general_secretary); @endphp
                     @if (!empty($general_secretary['member_photo']))
-                        <img src="@php echo URL::to('/').'/uploads/members/'. $general_secretary['id'] .'/'. $general_secretary['member_photo'] @endphp" />
+                        <img src="@php echo $general_secretary['member_photo'] @endphp" />
                     @endif
                     <p><b>{{ $general_secretary['name'] }}</b><br><i>(General Secretary)</i></p>
                 @endif
@@ -82,7 +82,7 @@
                 @if(!empty($committee->secretary))
                     @php $secretary = $User->getUser($committee->secretary); @endphp
                     @if (!empty($secretary['member_photo']))
-                        <img src="@php echo URL::to('/').'/uploads/members/'. $secretary['id'] .'/'. $secretary['member_photo'] @endphp" />
+                        <img src="@php echo $secretary['member_photo'] @endphp" />
                     @endif
                     <p>{{ $secretary['name'] }}<br><i>(Secretary)</i></p>
                     @else
@@ -94,7 +94,7 @@
                 @if(!empty($committee->treasurer))
                     @php $treasurer = $User->getUser($committee->treasurer); @endphp
                     @if (!empty($treasurer['member_photo']))
-                        <img src="@php echo URL::to('/').'/uploads/members/'. $treasurer['id'] .'/'. $treasurer['member_photo'] @endphp" />
+                        <img src="@php echo $treasurer['member_photo'] @endphp" />
                     @endif
                 <p><b>{{ $treasurer['name'] }}</b><br><i>(Treasurer)</i></p>
                 @else
@@ -106,7 +106,7 @@
                 @if(!empty($committee->vc_treasurer))
                     @php $vc_treasurer = $User->getUser($committee->vc_treasurer); @endphp
                     @if (!empty($vc_treasurer['member_photo']))
-                        <img src="@php echo URL::to('/').'/uploads/members/'. $vc_treasurer['id'] .'/'. $vc_treasurer['member_photo'] @endphp" />
+                        <img src="@php echo $vc_treasurer['member_photo'] @endphp" />
                     @endif
                     <p><b>{{ $vc_treasurer['name'] }}</b><br><i>(Vice treasurer)</i></p>
                     @else
@@ -128,7 +128,7 @@
             @php $membr = $User->getUser($comember); @endphp
             <div class="col-md-3">
                 @if (!empty($membr['member_photo']))
-                    <img src="@php echo URL::to('/').'/uploads/members/'. $membr['id'] .'/'. $membr['member_photo'] @endphp" />
+                    <img src="@php echo $membr['member_photo'] @endphp" />
                 @endif
                 <p><b>{{ $membr['name'] }}</b></p>
             </div>
