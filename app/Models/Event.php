@@ -28,6 +28,7 @@ class Event extends Model
      */
     protected $fillable = [
         'title',
+        'location',
         'description',
         'photo',
         'start_date',
@@ -59,6 +60,7 @@ class Event extends Model
         )
         ->update([
             'title' => $event['title'],
+            'location' => $event['location'],
             'description' => $event['description'],
             'photo' => $event['photo'],
             'start_date' => $event['start_date'],

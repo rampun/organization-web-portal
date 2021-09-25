@@ -59,6 +59,14 @@
               </div>
 
               <div class="form-group col-md-12">
+                <label for="location">
+                  Location *
+              </label>
+                <input type="text" value="{{ $event->location }}" name="location" class="form-control" id="location">
+              </div>
+
+
+              <div class="form-group col-md-12">
                 <label for="description">Description *
                 </label>
                 <textarea rows="6" name="description" class="form-control" id="description">{{ $event->description }}</textarea>

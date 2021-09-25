@@ -66,6 +66,16 @@
               </div>
 
               <div class="form-group col-md-12">
+                <label for="location">
+                  Location *
+                  @if ($errors->has('location'))
+                  <span class="text-danger">({{ $errors->first('location') }})</span>
+                @endif
+              </label>
+                <input type="text" value="{{ old('location') }}" name="location" class="form-control" id="location">
+              </div>
+              
+              <div class="form-group col-md-12">
                 <label for="description">Description *
                   @if ($errors->has('description'))
                   <span class="text-danger">({{ $errors->first('description') }})</span>

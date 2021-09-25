@@ -42,11 +42,13 @@ class EventController extends ApiController
     {
         $validatedData = $request->validate([
             'title' => 'required',
+            'location' => 'required',
             'description' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ], [
             'title.required' => 'Required',
+            'location.required' => 'Required',
             'description.required' => 'Required',
             'start_date.required' => 'Required',
             'end_date.required' => 'Required',
@@ -54,6 +56,7 @@ class EventController extends ApiController
 
               // save user meta
             $event['title'] = $request->input('title');
+            $event['location'] = $request->input('location');
             $event['description'] = $request->input('description');
             $event['start_date'] = Carbon::parse($request->input('start_date'))->format('Y-m-d H:i');
             $event['end_date'] = Carbon::parse($request->input('end_date'))->format('Y-m-d H:i');
@@ -95,6 +98,7 @@ class EventController extends ApiController
         $eventId = $request->input('id');
         $event['id'] = $eventId;
         $event['title'] = $request->input('title');
+        $event['location'] = $request->input('location');
         $event['description'] = $request->input('description');
         $event['start_date'] = $request->input('start_date');
         $event['end_date'] = $request->input('end_date');

@@ -8,6 +8,7 @@
       </div>
       <div class="col-md-12">
         <h3>{{ $event->title }}</h3>
+        <p> Location: {{ $event->location }} </p>
       </div>
       <div class="col-md-12">
         <br>

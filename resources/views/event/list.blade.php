@@ -95,6 +95,7 @@ use Carbon\Carbon;
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
+                <th scope="col">Location</th>
                 <th scope="col">Start</th>
                 <th scope="col">End</th>
                 <th scope="col">Action</th>
@@ -113,6 +114,9 @@ use Carbon\Carbon;
                 @if ($event->status == 'Draft' && $status!='Draft')
                   <span class="post-state"> — Draft</span>
                 @endif
+              </td>
+              <td>
+                <p>{{ $event->location }} </p>
               </td>
               <td>{{ Carbon::parse($event->start_date)->format('Y-m-d H:i') }}</td>
               <td>{{ Carbon::parse($event->end_date)->format('Y-m-d H:i') }}</td>
