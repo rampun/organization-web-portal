@@ -1,6 +1,6 @@
 # Web Portal App
 
-A simple web portal app for organzation. The app contains the following features;
+A simple web portal app for organzation built with Laravel 8.83.27. The app contains the following features;
 
 - Manage Members
 - Mange Events
