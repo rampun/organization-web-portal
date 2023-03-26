@@ -12,7 +12,7 @@
 <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMember" aria-expanded="true" aria-controls="collapseMember">
         <i class="fas fa-users"></i>
-    <span>{{ __('Member') }}</span>
+        <span>{{ __('Member') }}</span>
     </a>
     <div id="collapseMember" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
@@ -23,12 +23,12 @@
 </li>
 
 <!-- Nav Item - Committees -->
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link" href="{{ route('committee.list', 'All') }}">
         <i class="fas fa-sitemap"></i>
         <span>{{ __('Committees') }}</span>
     </a>
-</li>
+</li> -->
 
 <!-- Nav Item - Events -->
 <li class="nav-item">

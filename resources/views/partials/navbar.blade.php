@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon">
             <i class="fas fa-building"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">PMS Portal</div>
+        <div class="sidebar-brand-text mx-3">Web Portal</div>
     </a>
 
     <!-- Divider -->

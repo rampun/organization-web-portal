@@ -142,7 +142,7 @@ class UserController extends ApiController
                 if ($request->file('member_photo')->isValid()) {
                     $member_photo_fileName = time() . '_id_' . $user->id . '.' . $request->member_photo->extension();
                     $request->member_photo->move(public_path('uploads/members/' . $user->id), $member_photo_fileName);
-                    $user_meta['member_photo'] = url('/').'/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
+                    $user_meta['member_photo'] = url('/') . '/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
                 }
             }
 
@@ -152,7 +152,7 @@ class UserController extends ApiController
                 if ($request->file('spouse_photo')->isValid()) {
                     $spouse_photo_fileName = time() . '_spouse_of_' . $user->id . '.' . $request->spouse_photo->extension();
                     $request->spouse_photo->move(public_path('uploads/members/' . $user->id), $spouse_photo_fileName);
-                    $user_meta['spouse_photo'] = url('/').'/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
+                    $user_meta['spouse_photo'] = url('/') . '/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
                 }
             }
 
@@ -183,7 +183,7 @@ class UserController extends ApiController
                             if ($request->file($request_child_file_name)->isValid()) {
                                 $child_photo_fileName = time() . '_child_' . $i . '_of_' . $user->id . '.' . $request->$request_child_file_name->extension();
                                 $request->$request_child_file_name->move(public_path('uploads/members/' . $user->id), $child_photo_fileName);
-                                $child_photo_file_name = url('/').'/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
+                                $child_photo_file_name = url('/') . '/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
                             }
                         }
 
@@ -320,7 +320,7 @@ class UserController extends ApiController
                     $member_photo_fileName = time() . '_id_' . $user->id . '.' . $request->member_photo->extension();
                     $request->member_photo->move(public_path('uploads/members/' . $user->id), $member_photo_fileName);
                     $oldFileMember = $userInfo->member_photo;
-                    $userInfo->member_photo = url('/').'/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
+                    $userInfo->member_photo = url('/') . '/uploads/members/' . $user->id . '/' . strval($member_photo_fileName);
                     //remove old file
                     Storage::delete($oldFileMember);
                 }
@@ -333,7 +333,7 @@ class UserController extends ApiController
                     $spouse_photo_fileName = time() . '_spouse_of_' . $user->id . '.' . $request->spouse_photo->extension();
                     $request->spouse_photo->move(public_path('uploads/members/' . $user->id), $spouse_photo_fileName);
                     $oldFileSpouse = $userInfo->spouse_photo;
-                    $userInfo->spouse_photo = url('/').'/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
+                    $userInfo->spouse_photo = url('/') . '/uploads/members/' . $user->id . '/' . strval($spouse_photo_fileName);
                     //remove old file
                     Storage::delete($oldFileSpouse);
                 }
@@ -369,7 +369,7 @@ class UserController extends ApiController
                                 $child_photo_fileName = time() . '_child_' . $i . '_of_' . $user->id . '.' . $request->$child_file_name->extension();
                                 $request->$child_file_name->move(public_path('uploads/members/' . $user->id), $child_photo_fileName);
                                 $oldFileChild = $cinfo->photo;
-                                $child_photo_file_name_save = url('/'). '/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
+                                $child_photo_file_name_save = url('/') . '/uploads/members/' . $user->id . '/' . strval($child_photo_fileName);
                                 //remove old file
                                 Storage::delete($oldFileChild);
                             }
@@ -428,7 +428,7 @@ class UserController extends ApiController
 
         $user = User::find($id);
         $user->delete();
-        $user_meta = UserMeta::find($user->id);
+        $user_meta = UserMeta::where('user_id', $user->id)->first();
         $user_meta->delete();
         return redirect()->route('member.list')->with('success', 'User and User meta deleted successfully.');;
     }
@@ -465,7 +465,7 @@ class UserController extends ApiController
                 if ($request->file($request_child_file_name)->isValid()) {
                     $child_photo_fileName = time() . '_child_' . $i . '_of_' . $userId . '.' . $request->$request_child_file_name->extension();
                     $request->$request_child_file_name->move(public_path('uploads/members/' . $userId), $child_photo_fileName);
-                    $child_photo_file_name = url('/').'/uploads/members/' . $userId . '/' . strval($child_photo_fileName);
+                    $child_photo_file_name = url('/') . '/uploads/members/' . $userId . '/' . strval($child_photo_fileName);
                 }
             }
 
@@ -503,14 +503,12 @@ class UserController extends ApiController
             //   ]);
 
 
-          $data = [
-            'token' => $successToken,
-            'user' => $user
+            $data = [
+                'token' => $successToken,
+                'user' => $user
             ];
 
-          return $this->successResponse($data, 'Login success', 200);
-
-
+            return $this->successResponse($data, 'Login success', 200);
         } else {
             return $this->errorResponse('Invalid Email or Password', 401);
         }
@@ -519,23 +517,22 @@ class UserController extends ApiController
     // API - user logout
     public function logout(Request $res)
     {
-      if (Auth::user()) {
-        $user = Auth::user()->token();
-        $user->revoke();
+        if (Auth::user()) {
+            $user = Auth::user()->token();
+            $user->revoke();
 
-    //     return response()->json([
-    //       'success' => true,
-    //       'message' => 'Logout successfully'
-    //   ]);
+            //     return response()->json([
+            //       'success' => true,
+            //       'message' => 'Logout successfully'
+            //   ]);
 
-      return $this->successResponse('', 'Logout success', 200);
-
-      }else {
-        // return response()->json([
-        //   'success' => false,
-        //   'message' => 'Unable to Logout'
-        // ]);
-        return $this->errorResponse('Unable to Logout', 401);
-      }
-     }
+            return $this->successResponse('', 'Logout success', 200);
+        } else {
+            // return response()->json([
+            //   'success' => false,
+            //   'message' => 'Unable to Logout'
+            // ]);
+            return $this->errorResponse('Unable to Logout', 401);
+        }
+    }
 }

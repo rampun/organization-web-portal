@@ -9,7 +9,7 @@
     <div class="row">
         <div class="mx-auto pms-landing">
             <h3>
-                Welcome to Pun Magar Society Portal
+                Welcome to Organization Web Portal
             </h3>
             <a href="/login" class="login_btn">
                 Login

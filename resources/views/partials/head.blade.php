@@ -7,7 +7,7 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>{{ config('app.name', 'Pun Magar Society') }}</title>
+<title>{{ config('app.name', 'Organization Portal') }}</title>
 
 <!-- Fonts -->
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
