@@ -23,7 +23,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::middleware('auth:api')->group( function () {
+Route::middleware('auth:api')->group(function () {
 
     Route::post('suggestion/create', [SuggestionController::class, 'create']);
 
@@ -32,9 +32,9 @@ Route::middleware('auth:api')->group( function () {
     Route::get('/member/{id}', [UserController::class, 'detail']);
     Route::post('/member/search/', [UserController::class, 'search']);
 
-    
 
-    
+
+
 
     // Update password
     Route::post('/profile/changePassword', [ProfileController::class, 'changePassword']);
