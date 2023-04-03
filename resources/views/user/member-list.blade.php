@@ -119,9 +119,9 @@
           <tr>
             <th scope="row">{{ $i++ }}</th>
             <td>
-              <!-- <a href="{{ route('member.detail',$user['id']) }}"> -->
-              {{ $user['name'] }}
-              <!-- </a>/ -->
+              <a href="{{ route('member.detail',$user['id']) }}">
+                {{ $user['name'] }}
+              </a>
             </td>
             <td>{{ $user['email'] }}</td>
             {{-- <td>{{ $user['family_name'] }}</td>

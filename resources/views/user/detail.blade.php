@@ -107,23 +107,8 @@
       </div>
     </div>
     <div class="form-row">
-      <div class="form-group col-md-6">
-        <strong>Address (Nepal):</strong>
-        @php
-        if(!empty($user_info->address_np))
-        echo $user_info->address_np;
-        @endphp
-        @php
-        if(!empty($user_info->district_np))
-        echo ', ' . $user_info->district_np;
-        @endphp
-        @php
-        if(!empty($user_info->province_np))
-        echo ', ' . $user_info->province_np;
-        @endphp
-      </div>
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
         <strong>Address (Hong Kong):</strong>
         @php
         if(!empty($user_info->address_hk))
@@ -189,64 +174,15 @@
         <div class="form-group col-md-3">
           <strong>Photo:</strong>
           @php
-          if(!empty($user_info->spouse_photo))
+          if(!empty($user_info->spouse_photo)){
           echo '<img src="'.$user_info->spouse_photo .'" width="150px">';
-          else {
-          echo '<img src="'. Helper::getPlaceholderImage() . " width='150px'>';
+          }else {
+          echo '<img src="'. Helper::getPlaceholderImage() . '" width="150px">';
           }
           @endphp
         </div>
       </div>
     </div>
   <?php endif; ?>
-
-  {{-- Child Information --}}
-  @if (!$children_info->isEmpty())
-  <div style="border-bottom: 1px solid gainsboro">
-    <h5 class="upperTitle" style="text-transform: uppercase"> Child Information</h5>
-    @foreach ($children_info as $child)
-    <div class="form-row">
-      <div class="form-group col-md-3">
-        <strong>Full Name:</strong>
-        @php
-        if(!empty($child->full_name))
-        echo $child->full_name;
-        @endphp
-      </div>
-      <div class="form-group col-md-2">
-        <strong>DOB: </strong>
-        @php
-        if(!empty($child->dob))
-        echo $child->dob;
-        @endphp
-      </div>
-      <div class="form-group col-md-2">
-        <strong>Gender: </strong>
-        @php
-        if(!empty($child->gender))
-        echo $child->gender;
-        @endphp
-      </div>
-
-      <div class="form-group col-md-3">
-        <strong>Education: </strong>
-        @php
-        if(!empty($child->education_level))
-        echo $child->education_level;
-        @endphp
-      </div>
-      <div class="form-group col-md-2">
-        @php
-        if(!empty($child->photo))
-        echo '<img src="'.URL::to('/').$user->id .'/'.$child->photo .'" width="150px">';
-        else {
-        echo '<img src="'.URL::to('/').'/images/pmshk-placeholder.jpeg" width="150px">';
-        }
-        @endphp
-      </div>
-    </div>
-    @endforeach
-  </div>
-  @endif
 </div>
 @endsection
