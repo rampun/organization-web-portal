@@ -180,65 +180,6 @@ $jobOptions = [
       </div>
     </div>
 
-    <h6> Nepal </h6>
-    <div class="form-row">
-
-      {{-- Address --}}
-      <div class="form-group col-md-6">
-        <label for="address_np">
-          Address
-          @if ($errors->has('address_np'))
-          <span class="text-danger">({{ $errors->first('address_np') }})</span>
-          @endif
-        </label>
-        <input type="text" name="address_np" value="{{ old('address_np') }}" placeholder="Address" class="form-control" id="address_np">
-      </div>
-
-      {{-- Province --}}
-      <div class="form-group col-md-3">
-        <label for="province_np">
-          Province
-          @if ($errors->has('province_np'))
-          <span class="text-danger">({{ $errors->first('province_np') }})</span>
-          @endif</label>
-
-        <select id="province_np" name="province_np" class="form-control">
-          <option value="">Select</option>
-          {{-- load provinces from json data --}}
-          @php if(!empty($np_provinces))
-          foreach ($np_provinces as $key => $np_province) {
-          $selected = old("province_np") == $key ? "selected":"";
-          echo '<option value="'.$key.'"' . $selected .' id="'.preg_replace('/[^A-Za-z0-9-]/', '', $key) .'">'. $key . '</option>';
-          }
-          @endphp
-        </select>
-      </div>
-
-      {{-- District --}}
-      <div class="form-group col-md-3">
-        <label for="district_np">
-          District
-          @if ($errors->has('district_np'))
-          <span class="text-danger">({{ $errors->first('district_np') }})</span>
-          @endif
-        </label>
-        <select id="district_np" name="district_np" class="form-control">
-          <option value="">Select</option>
-
-          @php if(!empty($np_provinces))
-          foreach ($np_provinces as $key => $np_provinces) {
-
-          foreach ($np_provinces as $dis_key => $district) {
-          $selected = old("district_np") == $district ? "selected":"";
-
-          echo '<option value="'.$district.'"' . $selected . ' class="np_districts '.preg_replace('/[^A-Za-z0-9-]/', '', $key) .'">'. $district . '</option>';
-          }
-          }
-          @endphp
-        </select>
-      </div>
-    </div>
-
     <h6> Hong Kong </h6>
     <div class="form-row">
 
