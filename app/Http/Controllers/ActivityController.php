@@ -15,7 +15,7 @@ class ActivityController extends ApiController
     {
         $this->activities = $activities;
     }
-    public function list(Request $request, $status= 'All')
+    public function list(Request $request, $status = 'All')
     {
         $activities = $this->activities->getActivities($status);
         if ($request->wantsJson()) {
@@ -62,7 +62,7 @@ class ActivityController extends ApiController
             if ($request->file('photo')->isValid()) {
                 $activity_photo_file_name = strval(str_replace(' ', '', time() . $request->input('start_date') . '.' . $request->photo->extension()));
                 $request->photo->move(public_path('uploads/activities/'), $activity_photo_file_name);
-                $activity['photo'] = url('/').'/uploads/activities/' . $activity_photo_file_name;
+                $activity['photo'] = url('/') . '/uploads/activities/' . $activity_photo_file_name;
             }
         }
 
@@ -99,7 +99,7 @@ class ActivityController extends ApiController
             if ($request->file('photo')->isValid()) {
                 $activity_photo_file_name = strval(str_replace(' ', '', time() . $request->input('start_date') . '.' . $request->photo->extension()));
                 $request->photo->move(public_path('uploads/activities/'), $activity_photo_file_name);
-                $activity['photo'] = url('/').'/uploads/activities/' . $activity_photo_file_name;
+                $activity['photo'] = url('/') . '/uploads/activities/' . $activity_photo_file_name;
             }
         } else {
             $singleActivities = $this->activities->getActivitySingle($activityId);
@@ -131,18 +131,18 @@ class ActivityController extends ApiController
         $this->activities->deleteActivity($id);
         return redirect()->route('activity.list', 'All')->with('success', 'Activity deleted successfully.');
     }
-    
+
     // restore Activity
     public function restore(Request $request, $id)
     {
         $this->activities->restoreActivity($id);
-        return redirect()->route('activity.list','All')->with('success', 'Activity restored successfully.');
+        return redirect()->route('activity.list', 'All')->with('success', 'Activity restored successfully.');
     }
 
     // permanently delete Activity
     public function permanentlyDelete(Request $request, $id)
     {
         $this->activities->permanentlyDelete($id);
-        return redirect()->route('activity.list','All')->with('success', 'Activity deleted permanently.');
+        return redirect()->route('activity.list', 'All')->with('success', 'Activity deleted permanently.');
     }
 }

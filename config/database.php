@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Str;
 
+
+// define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
+// define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
+// define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
+// define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
+
+
+
 return [
 
     /*
@@ -123,7 +131,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
