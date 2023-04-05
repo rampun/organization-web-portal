@@ -66,7 +66,7 @@ php artisan serve
 #### The API routes can be found in `routes/api.php` file
 
 ### Demo
-[Here](http://org-portal.us-east-1.elasticbeanstalk.com/)
+Click [here](http://org-portal.us-east-1.elasticbeanstalk.com/)
 
 u: admin@test.com
 
