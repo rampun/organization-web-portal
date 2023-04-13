@@ -64,10 +64,3 @@ php artisan serve
 
 #### The admin routes can be found in `routes/web.php` file
 #### The API routes can be found in `routes/api.php` file
-
-### Demo
-Click [here](http://org-portal.us-east-1.elasticbeanstalk.com/)
-
-u: admin@test.com
-
-p: asdfasdf
